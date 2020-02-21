@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import UserItem from './UserItem';
 import Spinner from '../layout/Spinner';
 import GithubContext from '../../context/github/githubContext';
+import '../../../src/App.css';
 
 const Users = () => {
 	const githubContext = useContext(GithubContext);
@@ -10,7 +11,7 @@ const Users = () => {
 		return <Spinner />;
 	} else {
 		return (
-			<div style={userStyle}>
+			<div className='mobilegrid' style={userStyle}>
 				{users.map(user => (
 					<UserItem key={user.id} user={user} />
 				))}
@@ -21,7 +22,6 @@ const Users = () => {
 
 const userStyle = {
 	display: 'grid',
-	gridTemplateColumns: 'repeat(3, 1fr)',
 	gridGap: '1rem'
 };
 export default Users;
